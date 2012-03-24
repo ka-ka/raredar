@@ -24,6 +24,7 @@ end
 -- @return a list of rares found in units.
 function get_rares(units, all_rares)
    rares = {}
+   local lang=Inspect.System.Language()
    for k,v in pairs(units) do
       if k ~= nil and type(k) == "string" then
          -- Check that the unit is neither a player nor a pet as
@@ -36,7 +37,8 @@ function get_rares(units, all_rares)
          if not detail["player"] and
             (secname == nil or not string.find(secname, " Pet")) then
             unit_name = detail["name"]
-            if all_rares[unit_name] then
+	    -- print("unit_name=" .. unit_name .. ( all_rares[lang][unit_name] or "false" ))
+            if (all_rares[lang]) and (all_rares[lang][unit_name]~=nil) then
                table.insert(rares, unit_name)
             end
          end
@@ -49,5 +51,5 @@ end
 --
 -- @param units The list of newly available units that "the client can see".
 local function print_units(units)
-   get_rares(units, all_rares)
+   get_rares(units, RareDar.all_rares)
 end

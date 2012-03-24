@@ -10,17 +10,22 @@ Description = {
 Author = "stphung"
 Website = "stevenphung.org"
 
-Version = "0.1.4"
+Version = "0.2"
 
 Email = "stphung@gmail.com"
 
 Environment = "1.6"
 
+SavedVariables = {
+   RareDar = 'global',
+}
+
 RunOnStartup = {
+  "config.lua",
   "data.lua",
   "util.lua",
   "notification.lua",
-  "config.lua",
   "notification_handler.lua",
-  "event.lua"
+  "event.lua",
+  "radarbutton.lua",
 }
