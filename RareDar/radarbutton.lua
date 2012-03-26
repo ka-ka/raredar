@@ -156,6 +156,12 @@ local function buildMiniWindow()
 		miniWindow.zoneMenu[i].Event.LeftClick=function()
 			zoneMenuClick(name)
 		end
+		miniWindow.zoneMenu[i].Event.MouseIn=function()
+			miniWindow.zoneMenu[i]:SetBackgroundColor(0, 0, 0.5, 1)
+		end
+		miniWindow.zoneMenu[i].Event.MouseOut=function()
+			miniWindow.zoneMenu[i]:SetBackgroundColor(0, 0, 0, 1)
+		end
 	end
 	
 	miniWindow.cycle=UI.CreateFrame("Frame", "Cycle", miniWindow)
