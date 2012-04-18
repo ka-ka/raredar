@@ -6,6 +6,7 @@ Name = {
 
 Description = {
   English = "An addon designed for hunting down the many rares in Telara."
+  Russian = "Дополнение для охотников на редких животных Тэлары."
 }
 
 -- Original author:
