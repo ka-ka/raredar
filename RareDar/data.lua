@@ -19,7 +19,12 @@ RareDar_rares = {
       ["Raging Warmachine"]= { 699, 1084},
     },
     ["Mathosia"] = {
-      ["Defiant Assassin"]= { 1075, 1087},
+      ["Defiant Assassin"]= { 1075, 1087, 3},
+      ["Maurice Sullivan"]= { 1053, 1201, 1},
+      ["Frona Lykeria"]= { 1037, 1132, 2},
+      ["Summoned Horror"]= { 886, 1167, 4},
+      ["Road Warden Molnar"]= { 809, 1014, 5},
+      ["Gatekeeper Nortulis"]= { 937, 901, 6},
     },
     ["Freemarch"] = {
       ["Gizzit"] = { 7100, 5850},
