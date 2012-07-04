@@ -45,6 +45,7 @@ RareDar_rares = {
       ["Silverwood Werewolf"] = { 5800, 2700},
     },
     ["Stonefield"] = {
+      ["Ashandara"] = { 4477, 5019},
       ["Bahezerk"] = { 4428, 5065},
       ["Boneseeker"] = { 4740, 5285},
       ["Gnarvul"] = { 5442, 4899},
@@ -361,6 +362,7 @@ RareDar_rares = {
          ["Loup-garou"] = { 5800, 2700},
     },
     ["Champ de pierre"] = {
+         ["Ashandara"] = { 4477, 5019},
          ["Bahezerk"] = { 4428, 5065},
          ["Chercheur d'os"] = { 4740, 5285},
          ["Gnarvul"] = { 5442, 4899},

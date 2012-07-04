@@ -28,6 +28,9 @@ local function updatecycleinfo(i)
 end
 
 local function showZoneMenu()
+	if RareDar.secureMode then 
+	   return
+	end
 	for i, label in ipairs(miniWindow.zoneMenu) do
 		label:SetVisible(true)
 	end
@@ -35,18 +38,29 @@ local function showZoneMenu()
 end
 
 local function hideZoneMenu()
+	if RareDar.secureMode then 
+	   return
+	end
 	for i, label in ipairs(miniWindow.zoneMenu) do
 		label:SetVisible(false)
 	end
 end
 
 function RareDar_showMiniWindow()
+	if RareDar.secureMode then 
+	   print("disabled during combat.")
+	   return
+	end
 	RareDar.show = true
 	miniWindow:SetVisible(true)
 	print("showing main window.")
 end
 
 function RareDar_hideMiniWindow()
+	if RareDar.secureMode then 
+	   print("disabled during combat.")
+	   return
+	end
 	RareDar.show = false
 	miniWindow:SetVisible(false)
 	print("hiding main window.")
