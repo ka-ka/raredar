@@ -253,8 +253,8 @@ local function buildMiniWindow()
 end
 
 function RareDar_SetZoneMobs(list)
-	local str=""
-	local message=""
+	local str = ""
+	local message = ""
 	local n=0
         local max = table.maxn(list)
 	for i,name in ipairs(list) do
@@ -267,7 +267,7 @@ function RareDar_SetZoneMobs(list)
                                 message=message .. ", "
                         end
                 end
-                message=message .. name
+                message = message .. name
 	end
 	if (n>0) then
                 if (lastShownMessage ~= message) then
@@ -280,17 +280,17 @@ function RareDar_SetZoneMobs(list)
         lastShownMessage = message;
 
 	miniWindow.title:SetText("RareDar (" .. n .. ")")
-	miniWindow.itembtn.Event.LeftDown=str
+	miniWindow.itembtn.Event.LeftDown = str
 end
 
 function RareDar_SetCloseMobs()
    if (not RareDar.secureMode) then
-      local player=Inspect.Unit.Detail("player");
+      local player = Inspect.Unit.Detail("player");
       if ((player.coordX ~= nil) and (player.coordY ~= nil) and
            ((math.abs(player.coordX - lastCoordX) >= 20) or
             (math.abs(player.coordZ - lastCoordZ) >= 20))) then
-         local lang=Inspect.System.Language()
-         local moblist={}
+         local lang = Inspect.System.Language()
+         local moblist = {}
          if (player.zone ~= nil) then
             local zone=Inspect.Zone.Detail(player.zone)
             local lang_rares = RareDar_rares[lang]
@@ -305,6 +305,12 @@ function RareDar_SetCloseMobs()
                            table.insert(moblist, name)
                         end
                      end
+		     if (Inspect.Time.Real() >= RareDar.next_yield) then
+                        coroutine.yield()
+
+                        -- Set yield time 10 milli sec from now
+                        RareDar.next_yield = Inspect.Time.Real() + 0.01
+		     end
                   end
       	       end
             end

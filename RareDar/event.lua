@@ -5,13 +5,28 @@
 -- Notification display
 table.insert(Event.Unit.Available, {RareDar_show_notification_from_units, "RareDar", "Display Notification"})
 
+local job_coroutine = nil
+
+local function run_job()
+  -- Set yield time 10 milli sec from now
+  RareDar.next_yield = Inspect.Time.Real() + 0.01
+
+  RareDar_fade_notification()
+  RareDar_SetCloseMobs()
+end
+
 local function update()
-	RareDar_fade_notification()
-	RareDar_SetCloseMobs()
+   if (job_coroutine == nil) then
+      job_coroutine = coroutine.create(run_job)
+   end
+   coroutine.resume(job_coroutine)
+   if(coroutine.status(job_coroutine) == "dead") then
+     job_coroutine = nil
+   end
 end
 
 -- Notification fading
-table.insert(Event.System.Update.Begin, {update, "RareDar", "Fade Notification"})
+table.insert(Event.System.Update.Begin, {update, "RareDar", "Fade & Close mobs"})
 
 local raremobachvs={
 	"c5C766AF68015CB70",	-- old named mobs

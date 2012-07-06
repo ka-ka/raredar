@@ -21,3 +21,6 @@ RareDar.alpha = RareDar.alpha or 0.85
 -- Fading constants
 RareDar.display_time = RareDar.display_time or 10.0
 RareDar.fade_time = RareDar.fade_time or 3.5
+
+-- Yielding
+RareDar.next_yield = 0.0

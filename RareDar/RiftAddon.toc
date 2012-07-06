@@ -17,7 +17,7 @@ Description = {
 -- Current maintainer of RareDar
 Email = "karl_johan_karlsson@yahoo.se"
 
-Version = "0.2.5"
+Version = "0.2.6"
 
 Environment = "1.9"
 
