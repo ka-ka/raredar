@@ -104,8 +104,10 @@ table.insert(Event.System.Secure.Leave, { leaveSecure, "RareDar", "LeaveSecure" 
 
 local function help()
    print("Usage: /raredar [option]:")
-   print("    show: show the main window")
-   print("    hide: hide the main window")
+   print("    show:   show the main window")
+   print("    hide:   hide the main window")
+   print("    lock:   lock the main window position")
+   print("    unlock: unlock the main window position")
 end
 
 local function process(param)
@@ -126,6 +128,16 @@ local function process(param)
       
       if param == "show" then 
          RareDar_showMiniWindow()
+         found = true
+      end 
+
+      if param == "lock" then 
+         RareDar.locked = true;
+         found = true
+      end
+
+      if param == "unlock" then 
+         RareDar.locked = false;
          found = true
       end 
       

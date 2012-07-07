@@ -129,7 +129,7 @@ local function buildMiniWindow()
 	end
 
 	function miniWindow.Event:MouseMove()
-		if miniWindow.state.mouseDown then
+		if (miniWindow.state.mouseDown and (not RareDar.locked)) then
 			local mouse = Inspect.Mouse()
 			RareDar.xpos=mouse.x - miniWindow.state.mouseStartX + miniWindow.state.startX
 			RareDar.ypos=mouse.y - miniWindow.state.mouseStartY + miniWindow.state.startY
