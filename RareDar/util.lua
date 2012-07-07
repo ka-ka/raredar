@@ -24,10 +24,10 @@ end
 -- @return a list of rares found in units.
 function get_rares(units, all_rares)
    rares = {}
-   local lang=Inspect.System.Language()
-   local lang_rares=all_rares[lang]
+   local lang = Inspect.System.Language()
+   local lang_rares = all_rares[lang]
    if (lang_rares) then
-      local player=Inspect.Unit.Detail("player");
+      local player = Inspect.Unit.Detail("player");
       if (player.zone) then
          local zone=Inspect.Zone.Detail(player.zone)
          local zonename = zone.name
@@ -45,7 +45,7 @@ function get_rares(units, all_rares)
                   if ((not detail["player"]) and
                       (secname == nil or not string.find(secname, " Pet"))) then
                      local unit_name = detail["name"]
-                     if (zone_rares[unit_name]~=nil) then
+                     if (zone_rares[unit_name]~= nil) then
                         table.insert(rares, unit_name)
                      end
                   end

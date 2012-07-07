@@ -31,9 +31,9 @@ function RareDar_show_notification(message)
    end
 
    -- Display the new notification.
-   bar = display_notification(message, 
-	RareDar.horizontal_padding, RareDar.horizontal_offset, 
-	RareDar.red, RareDar.green, RareDar.blue, RareDar.alpha)
+   bar = display_notification(message,
+			      RareDar.horizontal_padding, RareDar.horizontal_offset,
+			      RareDar.red, RareDar.green, RareDar.blue, RareDar.alpha)
 end
 
 --- Fades a notification out.

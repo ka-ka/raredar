@@ -25,5 +25,5 @@ RareDar.fade_time = RareDar.fade_time or 3.5
 -- Yielding
 RareDar.next_yield = 0.0
 
--- Locked window position
+-- Lock window position
 RareDar.locked = RareDar.locked or false
