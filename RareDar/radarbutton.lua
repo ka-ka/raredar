@@ -4,6 +4,15 @@ local lastCoordX = 0
 local lastCoordZ = 0
 local lastShownMessage = nil
 
+local function yieldcheck()
+   if (Inspect.Time.Real() >= RareDar.next_yield) then
+      coroutine.yield()
+      
+      -- Set yield time 10 milli sec from now
+      RareDar.next_yield = Inspect.Time.Real() + 0.01
+   end
+end
+
 -- A array for the cycle data.
 -- Format of the array is:
 -- [1] xccord
@@ -258,6 +267,7 @@ function RareDar_SetZoneMobs(list)
    local n=0
    local max = table.maxn(list)
    for i,name in ipairs(list) do
+      yieldcheck()
       n = i
       str = str .. "target " .. name .. "\n"
       if (n > 1) then
@@ -285,6 +295,7 @@ end
 
 function RareDar_SetCloseMobs()
    if (not RareDar.secureMode) then
+      yieldcheck()
       local player = Inspect.Unit.Detail("player");
       if ((player.coordX ~= nil) and (player.coordY ~= nil) and
 	  ((math.abs(player.coordX - lastCoordX) >= 20) or
@@ -298,6 +309,7 @@ function RareDar_SetCloseMobs()
                local zone_rares = lang_rares[zone.name]
                if (zone_rares ~= nil) then
                   for name, info in pairs(zone_rares) do
+                     yieldcheck()
                      if info then
                         local xdist = math.abs(player.coordX - info[1])
                         local zdist = math.abs(player.coordZ - info[2])
@@ -305,12 +317,6 @@ function RareDar_SetCloseMobs()
                            table.insert(moblist, name)
                         end
                      end
-		     if (Inspect.Time.Real() >= RareDar.next_yield) then
-                        coroutine.yield()
-
-                        -- Set yield time 10 milli sec from now
-                        RareDar.next_yield = Inspect.Time.Real() + 0.01
-		     end
                   end
       	       end
             end
