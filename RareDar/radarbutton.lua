@@ -81,6 +81,7 @@ end
 -- them in all zones.
 
 local function zoneMenuClick(zone)
+   if RareDar.secureMode then return end
    hideZoneMenu()
    local lang=Inspect.System.Language()
    cycle={}
@@ -264,7 +265,7 @@ end
 function RareDar_SetZoneMobs(list)
    local str = ""
    local message = ""
-   local n=0
+   local n = 0
    local max = table.maxn(list)
    for i,name in ipairs(list) do
       yieldcheck()
@@ -279,6 +280,9 @@ function RareDar_SetZoneMobs(list)
       end
       message = message .. name
    end
+
+   yieldcheck()
+
    if (n > 0) then
       if (lastShownMessage ~= message) then
 	 print(message .. " might be close")

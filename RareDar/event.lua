@@ -20,7 +20,7 @@ local function update()
       job_coroutine = coroutine.create(run_job)
    end
    coroutine.resume(job_coroutine)
-   if(coroutine.status(job_coroutine) == "dead") then
+   if (coroutine.status(job_coroutine) == "dead") then
       job_coroutine = nil
    end
 end
@@ -65,7 +65,9 @@ end
 
 -- Initialization
 local function init(addon)
-   if addon == "RareDar" then
+   if (addon == "RareDar") then
+      -- make sure the watchdog dont complain during initialization
+      Command.System.Watchdog.Quiet()
       print("loaded!  We'll do our best to let you know when we find a rare mob!")
       print("Type /raredar for options.")
       --      Command.System.Strict()
@@ -114,7 +116,7 @@ local function process(param)
    --print(param)
    if (param ~= nil) and (param ~= "") then
 
-      local found = false;
+      local found = false
 
       if param == "help" then
          help()
@@ -132,12 +134,12 @@ local function process(param)
       end
 
       if param == "lock" then
-         RareDar.locked = true;
+         RareDar.locked = true
          found = true
       end
 
       if param == "unlock" then
-         RareDar.locked = false;
+         RareDar.locked = false
          found = true
       end
 
