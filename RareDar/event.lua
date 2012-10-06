@@ -3,7 +3,7 @@
 --------------------------------------------------------------------------------
 
 -- Notification display
-table.insert(Event.Unit.Available, {RareDar_show_notification_from_units, "RareDar", "Display Notification"})
+table.insert(Event.Unit.Availability.Full, {RareDar_show_notification_from_units, "RareDar", "Display Notification"})
 
 local job_coroutine = nil
 
