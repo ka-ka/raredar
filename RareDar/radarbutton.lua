@@ -27,6 +27,8 @@ local function updatecycleinfo(i)
    miniWindow.cycle.mobName:SetText(cycle[i][5])
    miniWindow.cycle.mobArea:SetText(cycle[i][4])
    miniWindow.cycle.mobName.Event.LeftDown="/target "..cycle[i][5]
+   miniWindow.cycle.xpos.Event.LeftDown="/setwaypoint " .. cycle[i][1] .. " " .. cycle[i][2]
+   miniWindow.cycle.ypos.Event.LeftDown="/setwaypoint " .. cycle[i][1] .. " " .. cycle[i][2]
    if (cycle[i][6] == true) then
       miniWindow.cycle.mobName:SetFontColor(0, 1, 0)
    elseif (cycle[i][6] == false) then
@@ -255,11 +257,13 @@ local function buildMiniWindow()
    miniWindow.cycle.xpos:SetWidth(60)
    miniWindow.cycle.xpos:SetFontSize(14)
    miniWindow.cycle.xpos:SetPoint("TOPLEFT", miniWindow.cycle.mobArea, "BOTTOMLEFT", 0, 0)
+   miniWindow.cycle.xpos:SetSecureMode("restricted")
 
    miniWindow.cycle.ypos=UI.CreateFrame("Text", "CycleMobYPos", miniWindow.cycle)
    miniWindow.cycle.ypos:SetWidth(60)
    miniWindow.cycle.ypos:SetFontSize(14)
    miniWindow.cycle.ypos:SetPoint("TOPRIGHT", miniWindow.cycle.mobArea, "BOTTOMRIGHT", 0, 0)
+   miniWindow.cycle.ypos:SetSecureMode("restricted")
 end
 
 function RareDar_SetZoneMobs(list)
